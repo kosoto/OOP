@@ -35,7 +35,7 @@ public class Main {
 		String output="",outputGrade="",outputSalary="";
 		int count =0,countGrade=0,countSalary=0;
 		while(true) {
-			Butt selcet = (Butt)JOptionPane.showInputDialog(
+			Butt select = (Butt)JOptionPane.showInputDialog(
 					null,
 					"Main Menu",
 					"Select Menu",
@@ -43,7 +43,7 @@ public class Main {
 					null,
 					buttons,
 					buttons[5]);
-			switch(selcet) {
+			switch(select) {
 			case EXIT : return;
 			case INPUT_BMI : 
 				bmi = new BMI();

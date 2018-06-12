@@ -42,6 +42,4 @@ public class Lotto {
 	public String getResult() {
 		return result;
 	}
-	
-	
 }
