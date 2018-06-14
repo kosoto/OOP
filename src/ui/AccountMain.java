@@ -26,7 +26,7 @@ public class AccountMain {
 		while(true) {
 			Butt select = (Butt)JOptionPane.showInputDialog(
 					null,
-					"Main Menu",
+					"Choice of Account Type",
 					"Select Menu",
 					JOptionPane.QUESTION_MESSAGE,
 					null,

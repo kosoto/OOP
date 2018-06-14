@@ -26,17 +26,14 @@ public class Account {
 		this.accountType=accountType;
 	}
 	public void setCreateDate() {
-		createDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(new java.util.Date());
+		createDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
 	}
 	public void setAccountNo() {
-		accountNo="";
+		String accountNo="";
 		for(int i=0;i<11;i++) {
-			if(i%4!=3) {
-				accountNo+=(int)(Math.random()*10);	
-			}else {
-				accountNo+="-";
-			}
+			accountNo+=(i%4!=3)?(int)(Math.random()*10):"-";
 		}
+		this.accountNo=accountNo;
 	}
 	public void setMoney(int money) {
 		this.money=money;
@@ -66,7 +63,7 @@ public class Account {
 	
 	public String toString() {
 		return String.format(
-				"%s \n %s \n 계좌번호 : %s \n 이름 : %s \n 생성일 : %s \n 잔액 : %s ",
+				"%s \n %s \n 계좌번호 : %s \n 이름 : %s \n 생성일 : %s \n 잔액 : %s 원 ",
 				BANK_NAME,ACCOUNT_TYPE,accountNo,name,createDate,money 
 				);
 	}
