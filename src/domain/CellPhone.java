@@ -24,7 +24,7 @@ public class CellPhone extends Phone{
 	public String toString() {
 		setPortable(true);
 		return String.format("%s 에게 %s 번호로 %s %s 제품 %s 를  사용해서 %s 라고 통화했다 ",
-				super.getName(),super.getPhoneNum(),move,BRAND,KIND,
+				super.getName(),getPhoneNum(),move,BRAND,KIND,
 				super.getCall());
 	}
 }

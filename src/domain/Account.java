@@ -8,16 +8,34 @@ public class Account {
 	public final static String WITHDRAW_FAIL="잔액부족";
 	public final static String DEPOSIT_SUCCESS="입금성공";
 	public final static String DEPOSIT_FAIL="적합한 입력값이 아님";
-	protected int money;
-	protected String name,uid,pass,accountNo,createDate;
-	// 통장 123-345-678 의 형태가 되도록 코딩(랜덤값)
-	// 블로그에서 오늘 날짜 뽑는 로직 가져다 createDate로
-	
-	public void setName(String name) {
+	protected int money,deposit,withdraw;
+	protected String name,uid,pass,accountNo,accountType,createDate,error;
+	public Account(
+			String name, String uid,String pass
+			) {
+		setAccountType(ACCOUNT_TYPE);
+		setAccountNo();
+		setCreateDate(); 
 		this.name=name;
+		this.uid=uid; 
+		this.pass=pass;
+		
 	}
-	public void setUid(String uid) {
-		this.uid=uid;
+	public void setDeposit(int deposit) {
+		this.money += deposit;
+	}
+	public void setWithdraw(int withdraw) {
+		int money = this.money;
+		if(money-withdraw>=0) {
+			money -= withdraw;
+		}else {
+			this.error="잔액이 부족합니다.";
+		}
+		
+		this.money = money;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType=accountType;
 	}
 	public void setPass(String pass) {
 		this.pass=pass;
@@ -36,6 +54,15 @@ public class Account {
 		this.money=money;
 	}
 	
+	public int getDeposit() {
+		return deposit;
+	}
+	public int getWithdraw() {
+		return withdraw;
+	}
+	public String getAccountType() {
+		return accountType;
+	}
 	public String getName() {
 		return name;
 	}
@@ -46,9 +73,11 @@ public class Account {
 		return pass;
 	}
 	public String getCreateDate() {
+	
 		return createDate;
 	}
 	public String getAccountNo() {
+		
 		return accountNo;
 	}
 	public int getMoney() {
@@ -56,9 +85,11 @@ public class Account {
 	}
 	
 	public String toString() {
-		return String.format(
+		String result =String.format(
 				"%s \n %s \n 계좌번호 : %s \n 이름 : %s \n 생성일 : %s \n 잔액 : %s 원 ",
-				BANK_NAME,ACCOUNT_TYPE,accountNo,name,createDate,money 
-				);
+				BANK_NAME,accountType,accountNo,name,createDate,money 
+				); 
+		return result;
+		
 	}
 }

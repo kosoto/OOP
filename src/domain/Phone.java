@@ -8,7 +8,7 @@ public class Phone {
 		this.name=name;
 	}
 	public void setPhoneNum(String phoneNum) {
-		this.phoneNum=phoneNum;
+		this.phoneNum=phoneNum; 
 	}
 
 	public void setCall(String call) {

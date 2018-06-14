@@ -10,7 +10,7 @@ import domain.Lotto;
  * 5	7	14	25	29	43
  * 3	24	33	37	39	43
  * 
- * */
+ * */ 
 public class Main {
 	enum Butt{
 		EXIT,INPUT_BMI,OUTPUT_BMI,

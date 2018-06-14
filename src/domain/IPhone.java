@@ -5,7 +5,7 @@ public class IPhone extends CellPhone {
 	static public final String BRAND = "애플",KIND="아이폰"; 
 	
 	public void setData(String data) {
-		this.data=data+"이라고 문자했다.";
+		this.data=data+"이라고 문자했다."; 
 	}
 	
 	public String getData() {
