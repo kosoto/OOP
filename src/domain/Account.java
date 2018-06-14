@@ -9,7 +9,7 @@ public class Account {
 	public final static String DEPOSIT_SUCCESS="입금성공";
 	public final static String DEPOSIT_FAIL="적합한 입력값이 아님";
 	protected int money;
-	protected String name,uid,pass,accountType,accountNo,createDate;
+	protected String name,uid,pass,accountNo,createDate;
 	// 통장 123-345-678 의 형태가 되도록 코딩(랜덤값)
 	// 블로그에서 오늘 날짜 뽑는 로직 가져다 createDate로
 	
@@ -21,9 +21,6 @@ public class Account {
 	}
 	public void setPass(String pass) {
 		this.pass=pass;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType=accountType;
 	}
 	public void setCreateDate() {
 		createDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
@@ -47,9 +44,6 @@ public class Account {
 	}
 	public String getPass() {
 		return pass;
-	}
-	public String getAccountType() {
-		return accountType;
 	}
 	public String getCreateDate() {
 		return createDate;
