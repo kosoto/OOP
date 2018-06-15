@@ -15,18 +15,16 @@ package ui;
  * 대출 : -10000원
  * */
 import javax.swing.JOptionPane;
-import domain.*;
-import service.*;
-import serviceImpl.*;
-public class AccountMain {
-	enum Butt{EXIT,ACCOUNT,MINUS_ACCOUNT,DEPOSIT,WITHDRAW,LIST};
+import domain.Account;
+import domain.MinusAccount;
+public class AccountMainOld {
+	enum Butt{EXIT,ACCOUNT,MINUS_ACCOUNT,DEPOSIT,WITHDRAW};
 	public static void main(String[] args) {
 		Butt[] button = {
 				Butt.EXIT,Butt.ACCOUNT,Butt.MINUS_ACCOUNT,
-				Butt.DEPOSIT,Butt.WITHDRAW,Butt.LIST
+				Butt.DEPOSIT,Butt.WITHDRAW
 		};
 		Account ac = null;
-		AccountService service = new AccountServiceImpl();
 		while(true) {
 			Butt select = (Butt)JOptionPane.showInputDialog(
 					null,
@@ -34,19 +32,18 @@ public class AccountMain {
 					"Select Menu",
 					JOptionPane.QUESTION_MESSAGE,
 					null,
-					
-					
-					
 					button,
 					button[1]);
 			switch(select) {
 			case EXIT : return;
 			case ACCOUNT : 
-				service.addList(service.createAccount(
+				ac = new Account(
 						JOptionPane.showInputDialog("이름은?"),
 						JOptionPane.showInputDialog("아이디 입력"),
 						JOptionPane.showInputDialog("비밀번호 입력")
-						));
+						);
+				ac.setMoney(Integer.parseInt(JOptionPane.showInputDialog("입금하시겠습니까?")));
+				JOptionPane.showMessageDialog(null, ac.toString());
 				break;
 			case MINUS_ACCOUNT : 
 				ac = new MinusAccount(
@@ -56,10 +53,6 @@ public class AccountMain {
 						);
 				((MinusAccount) ac).setLimit(Integer.parseInt(JOptionPane.showInputDialog("대출한도 설정")));
 				JOptionPane.showMessageDialog(null, ac.toString());
-				break;
-			case LIST : 
-				JOptionPane.showMessageDialog(null, service.showResult());
-				
 				break;
 			case DEPOSIT :
 				ac.setDeposit(Integer.parseInt(JOptionPane.showInputDialog("얼마 입금하시겠어요?")));
@@ -89,7 +82,6 @@ public class AccountMain {
 				}
 				JOptionPane.showMessageDialog(null, "잔액 : "+ac.getMoney());
 				break;
-			
 		
 			}
 			

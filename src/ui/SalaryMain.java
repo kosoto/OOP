@@ -55,11 +55,7 @@ public class SalaryMain {
 						Integer.parseInt(JOptionPane.showInputDialog("기본급은?"))
 						);
 				JOptionPane.showMessageDialog(null, pay.toString());break;
-			
-			
 			}
-			
 		}
-		
 	}
 }

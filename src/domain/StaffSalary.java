@@ -5,7 +5,7 @@ public class StaffSalary extends Payment{
 	int bonus; //10%
 	public StaffSalary(String name,int sal) {
 		super(name,sal);
-		this.dept=DEPT;
+		setdept(DEPT);
 		this.name=name.substring(0, 1)+dept;
 		this.bonus=sal/10;
 		this.sal+=bonus;

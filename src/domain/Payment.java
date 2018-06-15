@@ -6,9 +6,18 @@ public class Payment {
 	protected int sal;
 	
 	public Payment(String name,int sal){
-		this.dept=DEPT;
+		//this.dept=DEPT;
+		setdept(DEPT);
 		this.name=name.substring(0, 1)+dept;
 		this.sal=sal;
+	}
+	
+	public void setdept(String dept) {
+		this.dept=dept;
+	}
+	
+	public String getdept() {
+		return dept;
 	}
 	
 	public String toString() {
